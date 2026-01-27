@@ -3,11 +3,11 @@ from dotenv import load_dotenv
 import nest_asyncio
 
 # LlamaIndex Core
-from llama_index.core import PromptTemplate
+from llama_index.core import PromptTemplate, Settings
 from llama_index.core.tools import QueryEngineTool, ToolMetadata
 from llama_index.core.query_engine import RouterQueryEngine
-from llama_index.core.selectors import LLMSingleSelector
-
+from llama_index.core.selectors import LLMSingleSelector, PydanticSingleSelector
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from src.retrieval import load_index, get_llm
 from llama_index.core.retrievers import AutoMergingRetriever
 from llama_index.core.query_engine import RetrieverQueryEngine
@@ -15,6 +15,8 @@ from llama_index.core.query_engine import RetrieverQueryEngine
 # Apply async
 nest_asyncio.apply()
 load_dotenv()
+Settings.embed_model = HuggingFaceEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
+Settings.llm = get_llm()
 
 # Prompt Template
 # 1. Tutor Persona 
@@ -67,7 +69,7 @@ def get_router_engine():
     print("Initializing Router and Tools")
 
     # Setup Base Components
-    llm = get_llm()
+    llm = Settings.llm
     index, storage_context = load_index() 
 
     # Base Retriever 
@@ -122,12 +124,13 @@ def get_router_engine():
     # Build the Router
     # LLMSingleSelector uses the LLM to choose the best single tool.
     router_engine = RouterQueryEngine(
-        selector=LLMSingleSelector.from_defaults(llm=llm),
+        selector=PydanticSingleSelector.from_defaults(llm=llm),
         query_engine_tools=[
             summary_tool,
             exam_tool,
             tutor_tool,
         ],
+        llm=llm,
         verbose=True 
     )
     

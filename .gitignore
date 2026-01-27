@@ -8,6 +8,7 @@ __pycache__/
 
 # DataBase
 chroma_db
+storage
 
 # Distribution / packaging
 .Python

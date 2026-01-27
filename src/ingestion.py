@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 # LlamaIndex core
 from llama_index.core import SimpleDirectoryReader, StorageContext, VectorStoreIndex
-from llama_index.core.node_parser import HierarchicaNodeParser, get_leaf_nodes
+from llama_index.core.node_parser import HierarchicalNodeParser, get_leaf_nodes
 from llama_index.core.storage.docstore import SimpleDocumentStore
 from llama_index.core import Settings
 
@@ -40,7 +40,7 @@ def pipeline_components():
     # Creates a tree
     # Root (2048 tokens): Holds the full concept context
     # Leaf (512 tokens): Small chunks help precise vector search
-    node_parser = HierarchicaNodeParser.from_defaults(
+    node_parser = HierarchicalNodeParser.from_defaults(
         chunk_sizes=[2048, 512, 128]
     )
 
@@ -73,6 +73,10 @@ def load_and_parse_documents():
         file_extractor=file_extractor,
         recursive=True
     )
+    documents = reader.load_data()
+    print(f"Loaded {len(documents)} document pages.")
+    
+    return documents
 
 def run_ingestion():
     # Setup

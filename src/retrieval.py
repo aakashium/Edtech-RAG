@@ -32,7 +32,7 @@ def get_llm():
     if not os.getenv("GROQ_API_KEY"):
         raise ValueError("GROQ_API_KEY not found in .env file")
 
-    return Groq(model="llama3-70b-8192", temperature=0.1)
+    return Groq(model="llama-3.1-8b-instant", temperature=0.1)
 
 def load_index():
     """
