@@ -1,0 +1,7 @@
+llama-index-core
+llama-index-readers-file
+llama-parse
+llama-index-embeddings-huggingface
+llama-index-vector-stores-chroma
+python-dotenv
+chromadb
