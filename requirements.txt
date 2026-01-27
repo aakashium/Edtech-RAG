@@ -6,3 +6,4 @@ llama-index-vector-stores-chroma
 llama-index-llms-groq
 python-dotenv
 chromadb
+streamlit

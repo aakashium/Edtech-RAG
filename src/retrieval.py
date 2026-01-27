@@ -11,7 +11,7 @@ from llama_index.core.postprocessor import SentenceTransformerRerank
 # Integrations
 from llama_index.vector_stores.chroma import ChromaVectorStore
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from llama_index.llms.groq import groq
+from llama_index.llms.groq import Groq
 import chromadb
 
 # Apply nest_asyncio
