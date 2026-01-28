@@ -48,6 +48,6 @@ LLAMA_CLOUD_API_KEY=llx_...
 streamlit run app/main.py
 ```
 
-![alt text](<Screenshot (29).png>)
+images\Screenshot (29).png
 
-![alt text](<Screenshot (28).png>)
+images\Screenshot (28).png
