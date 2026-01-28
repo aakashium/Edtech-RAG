@@ -50,4 +50,4 @@ streamlit run app/main.py
 
 ![Dashboard Screenshot](./assets/Screenshot%20(29).png)
 
-![Dashboard Screenshot](./assets/Screenshot%20(28).png)
+
