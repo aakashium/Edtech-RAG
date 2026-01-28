@@ -7,8 +7,10 @@ __pycache__/
 *.so
 
 # DataBase
-chroma_db
-storage
+data/*
+storage/*
+chroma_db/*
+chroma_db/chroma.sqlite3
 
 # Distribution / packaging
 .Python
