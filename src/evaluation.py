@@ -1,6 +1,6 @@
 import nest_asyncio
 import pandas as pandas 
-from raga.testset.generator import TessetGenerator
+from raga.testset.generator import TestsetGenerator
 from ragas.testset.evolutions import simple, reasoning, multi_context
 from llama_index.core import SimpleDirectoryReader
 from llama_index.llms.groq import Groq
@@ -22,7 +22,7 @@ def generate_test_data():
     embeddings = HuggingFaceEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
     # Initialize Ragas Generator
-    generator_llm = TessetGenerator.from_llama_index(
+    generator_llm = TestsetGenerator.from_llama_index(
         generator_llm = generator_llm,
         critic_llm = critic_llm,
         embeddings = embeddings
