@@ -9,3 +9,5 @@ nest_asyncio
 chromadb
 streamlit
 watchdog
+ragas
+datasets
