@@ -26,7 +26,7 @@ This project moves beyond standard "Chat with PDF" tutorials by implementing **H
 
 1. Clone the repo
 ```bash
-git clone [https://github.com/yourusername/edtech-rag.git](https://github.com/yourusername/edtech-rag.git)
+git clone [https://github.com/aakashium/Edtech-RAG.git](https://github.com/aakashium/Edtech-RAG.git)
 cd edtech-rag
 ```
 2. Install dependencies
